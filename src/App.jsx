@@ -42,17 +42,17 @@ function App() {
     }
 
     //Use this option if you want to use chat completions
-    const optionsChatCompletions = {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-        Authorization: `Bearer ${import.meta.env.VITE_OPEN_AI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [{role: "user", content:'For all of this conversation, be as cheerful and as expressive as possible. Replace every r with a w. Add some playful and happy kaomojis (like (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ or (づ｡◕‿‿◕｡)づ) or (´｡• ᵕ •｡`) throughout tour answer. \n' + text}],
-      })
-    }
+    // const optionsChatCompletions = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-type': 'application/json',
+    //     Authorization: `Bearer ${import.meta.env.VITE_OPEN_AI_API_KEY}`
+    //   },
+    //   body: JSON.stringify({
+    //     model: 'gpt-3.5-turbo',
+    //     messages: [{role: "user", content:'For all of this conversation, be as cheerful and as expressive as possible. Replace every r with a w. Add some playful and happy kaomojis (like (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ or (づ｡◕‿‿◕｡)づ) or (´｡• ᵕ •｡`) throughout tour answer. \n' + text}],
+    //   })
+    // }
 
     //Use this fetch if you want to use completions
     const response = await fetch(import.meta.env.VITE_OPEN_AI_COMPLETIONS_URL, optionsCompletions)
