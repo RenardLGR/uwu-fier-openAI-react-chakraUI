@@ -11,11 +11,13 @@ function App() {
   const [loading, setLoading] = useState(false) //if we are fetching the data
 
   const getUwuText = async (text) => {
+    //No try catch block?!
     setLoading(true) //we are fetching the data
     setisOpen(true) //the modal has the spinner so we want that open too
 
     //https://platform.openai.com/docs/api-reference/completions/create
-    const options = {
+    //Use this option if you want to use completions
+    const optionsCompletions = {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -39,13 +41,34 @@ function App() {
       })
     }
 
-    const response = await fetch(import.meta.env.VITE_OPEN_AI_URL, options)
+    //Use this option if you want to use chat completions
+    const optionsChatCompletions = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_OPEN_AI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [{role: "user", content:'For all of this conversation, be as cheerful and as expressive as possible. Replace every r with a w. Add some playful and happy kaomojis (like (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ or (づ｡◕‿‿◕｡)づ) or (´｡• ᵕ •｡`) throughout tour answer. \n' + text}],
+      })
+    }
+
+    //Use this fetch if you want to use completions
+    const response = await fetch(import.meta.env.VITE_OPEN_AI_COMPLETIONS_URL, optionsCompletions)
+
+    //Use this fetch if you want to use chat completions
+    // const response = await fetch(import.meta.env.VITE_OPEN_AI_CHAT_COMPLETIONS_URL, optionsChatCompletions)
 
     const json = await response.json()
 
     console.log(json);
 
+    //Use this data if you want to use completions
     const data = json.choices[0].text.trim()
+
+    //Use this data if you want to use chat completions
+    // const data = json.choices[0].message.content.trim()
 
     // console.log(data);
 

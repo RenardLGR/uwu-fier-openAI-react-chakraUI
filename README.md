@@ -4,7 +4,9 @@ This is a simple demo project that uses the OpenAI Text Generation API to genera
 Installation<br>
 To use this demo, you will need to create a free account with OpenAI and obtain an API key. You can then add your API key to a .env file in the root of the project:<br>
 VITE_OPEN_AI_API_KEY = >your api key<<br>
-VITE_OPEN_AI_URL = 'https://api.openai.com/v1/completions'<br>
+VITE_OPEN_AI_COMPLETIONS_URL = 'https://api.openai.com/v1/completions'<br>
+VITE_OPEN_AI_CHAT_COMPLETIONS_URL = '
+https://api.openai.com/v1/chat/completions'<br>
 Once you have added your API key, you can install the project dependencies and run the project with the following commands:
 
 npm install<br>
