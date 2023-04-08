@@ -18,7 +18,6 @@ const Message = ({message}) => {
             marginLeft={isUser ? 'auto' : '0'}
             marginRight={isUser ? '0' : 'auto'}
             >
-                <Text>{author} :</Text>
                 <Text>{content}</Text>
             </Container>
         </Box>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Textarea, Button, useToast } from '@chakra-ui/react'
+import { Container, Textarea, Button, useToast } from '@chakra-ui/react'
 
 const TextInput = ({ getUwuText }) => {
 
@@ -24,7 +24,7 @@ const TextInput = ({ getUwuText }) => {
     }
 
     return (
-        <>
+        <Container maxWidth={'3xl'}>
             <Textarea
                 bg='pink.300'
                 color='white'
@@ -42,7 +42,7 @@ const TextInput = ({ getUwuText }) => {
                 _hover={{ bg: 'pink.700' }}
                 onClick={submitText}
             >✍(◔◡◔)</Button>
-        </>
+        </Container>
     )
 }
 
