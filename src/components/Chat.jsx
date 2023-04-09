@@ -55,7 +55,7 @@ const Chat = () => {
 
         const json = await response.json()
 
-        console.log(json);
+        // console.log(json);
 
 
         //Use this data if you want to use chat completions
@@ -65,7 +65,7 @@ const Chat = () => {
         oldHistory.push(['assistant', data])
         setHistory(oldHistory)
 
-        console.log(oldHistory);
+        // console.log(oldHistory);
 
         setLoading(false)
     }
